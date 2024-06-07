@@ -1,35 +1,10 @@
-#include<iostream>
+﻿#include<iostream>
 #include<list>
 #include <fstream>
 #include"dish.hpp"
 #include"employer.hpp"
 #include"manager.hpp"
 using namespace std;
-//void updateCSV(const list<Student>& database) {
-//    ofstream outputFile("student.csv");
-//    if (outputFile.is_open()) {
-//        for (const auto& student : database) {
-//            outputFile << student.getID() << ","
-//                << student.getName() << ","
-//                << student.getGender() << ","
-//                << student.getAge() << ","
-//                << student.getMathScore() << ","
-//                << student.getPhysicsScore() << ","
-//                << student.getChemistryScore() << endl;
-//        }
-//        outputFile.close();
-//        cout << "CSV file updated successfully." << endl;
-//    }
-//    else {
-//        cout << "Error opening student.csv for writing." << endl;
-//    }
-//}
-//istream& operator>>(istream& in, Gender& gender) {
-//    int value;
-//    in >> value;
-//    gender = static_cast<Gender>(value);
-//    return in;
-//}
 
 void printMenu(const list<Dish>& menu);
 int main()
@@ -38,6 +13,7 @@ int main()
 	int number_table = 0;
 	Manager manager1(Menu, number_table);
 	Employer employee1(Menu, number_table);
+    int reload;
     int choice;
     do {
         cout <<"Restaurant manager\n"
@@ -49,53 +25,124 @@ int main()
 
         switch (choice) {
         case 1:
+            int m_option;
             do {
+                
                 cout << "Manager\n"
                     << "1. Setup Number Table\n"
                     << "2. Add Dish\n"
                     << "3. Update Dish\n"
-                    << "2. Delete Dish\n"
-                    << "2. List of Dish\n"
+                    << "4. Delete Dish\n"
+                    << "5. List of Dish\n"
                     << "0. Exit\n"
                     << "Enter your choice: ";
-                // addStudent(studentDatabase);
-            } while
-            break;
+                cin >> m_option;
+                switch (m_option)
+                {
+                case 1:
+                    
+                    do
+                    {
+                        cout << "----Setup Number Table----\n"
+                            << "Enter number of table:";
+                        int number;
+                        cin >> number;
+                        manager1.setTable(number);
+                        cout << "Setup table successfully! \n"
+                            << "1. Return.\n"
+                            << "0. Exit.\n"
+                            << "Enter your choice:";
+                        
+                        cin >> reload;
+                        switch (reload)
+                        {
+                        case 1:
+                            continue; // Quay lại màn hình chính
+                        case 0:
+                            break; // Thoát khỏi chương trình
+                        }
+                        break;
+                    } while (reload != 0);
+                    break;
+                case 2:
+                    do
+                    {
+                        cout << "----Add Dish To Menu----\n";
+                        manager1.newDish();
+                        cout << "1. Return.\n"
+                            << "0. Exit.\n"
+                            << "Enter your choice:";
+
+                        cin >> reload;
+                        switch (reload)
+                        {
+                        case 1:
+                            continue; // Quay lại màn hình chính
+                        case 0:
+                            break; // Thoát khỏi chương trình
+                        }
+                        break;
+                    } while (reload != 0);
+                    break;
+                case 3:
+                    do
+                    {
+                        cout << "----Update Price For Dish----\n";
+                        manager1.listDish();
+                        manager1.updatePrice();
+                        cout << "1. Return.\n"
+                            << "0. Exit.\n"
+                            << "Enter your choice:";
+
+                        cin >> reload;
+                        switch (reload)
+                        {
+                        case 1:
+                            continue; // Quay lại màn hình chính
+                        case 0:
+                            break; // Thoát khỏi chương trình
+                        }
+                        break;
+                    } while (reload != 0);
+                    
+                    break;
+                case 4:
+                    do
+                    {
+                        cout << "----Delete Dish To Menu----\n";
+                        cout << "Enter ID want to delete:";
+                        int deleteDish;
+                        cin >> deleteDish;
+                        manager1.deleteDish(deleteDish);
+                        cout << "1. Return.\n"
+                            << "0. Exit.\n"
+                            << "Enter your choice:";
+
+                        cin >> reload;
+                        switch (reload)
+                        {
+                        case 1:
+                            continue; // Quay lại màn hình chính
+                        case 0:
+                            break; // Thoát khỏi chương trình
+                        }
+                        break;
+                    } while (reload != 0);
+                    break;
+                case 5:
+                    cout << "List of Dish:";
+                    manager1.listDish();
+                    break;
+                default:
+                    break;
+                }
+            } while (m_option != 0);
         case 2:
-            int targetID;
-            cout << "Enter student ID to delete: ";
-            cin >> targetID;
-            //deleteStudent(studentDatabase, targetID);
-            break;
-        case 3:
-            int updateID;
-            cout << "Enter student ID to update: ";
-            cin >> updateID;
-            //updateStudent(studentDatabase, updateID);
-            break;
-        case 4:
-
-            //searchStudent(studentDatabase);
-            break;
-        case 5:
-            int sortingOption;
-            cout << "Choose sorting option:" << endl;
-            cout << "1. Sort by name" << endl;
-            cout << "2. Sort by math score" << endl;
-            cout << "3. Sort by physics score" << endl;
-            cout << "4. Sort by chemistry score" << endl;
-            cout << "5. Sort by average score" << endl;
-            cout << "Enter your choice (1-5): ";
-            cin >> sortingOption;
-
-            //sortStudent(studentDatabase, sortingOption);
-            break;
-        case 6:
-            //printStudents(studentDatabase);
-            break;
-        case 7:
-            //updateCSV(studentDatabase);
-            break;
+            //int targetID;
+            //cout << "Enter student ID to delete: ";
+            //cin >> targetID;
+            ////deleteStudent(studentDatabase, targetID);
+            //break;
         case 0:
             cout << "Exiting program." << endl;
             break;

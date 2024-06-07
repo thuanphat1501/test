@@ -1,8 +1,8 @@
 #include"dish.hpp"
 #include<string>
 
-int Dish::getID() { return id; }
+int Dish::getID() const { return id; }
 
 void Dish::setPrice(int newPrice) { price = newPrice; }
-int Dish::getPrice() { return price; }
-string Dish::getName() { return name; }
+int Dish::getPrice() const { return price; }
+string Dish::getName() const { return name; }

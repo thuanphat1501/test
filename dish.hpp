@@ -18,10 +18,10 @@ public:
         ID++;
     }
 
-    int getID();
+    int getID() const;
     void setPrice(int newPrice);
-    int getPrice();
-    string getName();
+    int getPrice() const;
+    string getName() const;
 };
 
 #endif // DISH_H
