@@ -1,7 +1,9 @@
 ﻿#include"employer.hpp"
 #include"table.hpp"
+#include"manager.hpp"
 #include <vector>
 #include <string>
+#include<iostream>
 Table Employer::getTable(int id)
 {
     // Tìm và trả về bàn với ID tương ứng
@@ -16,3 +18,8 @@ Table Employer::getTable(int id)
     // (ví dụ: Table(0, false, menu))
     // ...
 }
+void Employer::displaySelectedTable()
+{
+    cout << "Selected table: " << selectedTable << endl;
+}
+// ...

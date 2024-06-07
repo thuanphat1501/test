@@ -137,16 +137,20 @@ int main()
                     break;
                 }
             } while (m_option != 0);
+            break;
         case 2:
+            employee1.displaySelectedTable();
+            int staffOption;
             cout << "Staff\n"
                 << "1. Get Table\n"
                 << "0. Exit\n"
                 << "Enter your choice: ";
-            int staffOption;
+            
             cin >> staffOption;
             switch (staffOption)
             {
             case 1:
+            {
                 int numTable;
                 cout << "Choose Table: ";
                 cin >> numTable;
@@ -160,6 +164,7 @@ int main()
                     cout << "Table " << numTable << " is not available." << endl;
                 }
                 break;
+            }
 
             case 0:
                 break;

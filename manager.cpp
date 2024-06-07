@@ -3,7 +3,7 @@
 #include"dish.hpp"
 #include<iostream>
 list<Dish> Menu;
-void Manager::setTable(int number) { number_table = number; };
+void Manager::setTable(int number) { selectedTable = number; };
 // Hàm để thêm món ăn vào danh sách Menu
 void Manager::newDish()
 {
