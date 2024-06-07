@@ -18,8 +18,14 @@ Table Employer::getTable(int id)
     // (ví dụ: Table(0, false, menu))
     // ...
 }
-void Employer::displaySelectedTable()
+void Employer::displaySelectedTable(int num)
 {
-    cout << "Selected table: " << selectedTable << endl;
+    cout << "Selected table: ";
+    for (int i = 1; i <= num; ++i)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
 }
+
 // ...

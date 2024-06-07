@@ -24,7 +24,7 @@ public:
 	};
 
 	Table getTable(int id);
-	void displaySelectedTable();
+	void displaySelectedTable(int num);
 
 };
 

@@ -45,9 +45,9 @@ int main()
                     {
                         cout << "----Setup Number Table----\n"
                             << "Enter number of table:";
-                        int number;
-                        cin >> number;
-                        manager1.setTable(number);
+                       
+                        cin >> number_table;
+                        manager1.setTable(number_table);
                         cout << "Setup table successfully! \n"
                             << "1. Return.\n"
                             << "0. Exit.\n"
@@ -139,7 +139,7 @@ int main()
             } while (m_option != 0);
             break;
         case 2:
-            employee1.displaySelectedTable();
+            employee1.displaySelectedTable(number_table);
             int staffOption;
             cout << "Staff\n"
                 << "1. Get Table\n"
