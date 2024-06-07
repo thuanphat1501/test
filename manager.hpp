@@ -12,7 +12,6 @@ class Manager
 private:
 	list<Dish> menu;
 	int number_table;
-	int selectedTable;
 	string password;
 public:
 	Manager(list<Dish>& menu, int& number_table, string password = "ADMIN") :

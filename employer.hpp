@@ -12,7 +12,6 @@ class Employer
 {
 private:
 	vector<Table> list_table;
-	//int selectedTable;
 public:
 	Employer(list<Dish> menu, int number_table, string password = "EMPLOYER")
 	{

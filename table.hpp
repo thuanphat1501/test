@@ -4,6 +4,7 @@
 
 #include"order.hpp"
 #include<list>
+#include<vector>
 
 using namespace std;
 
@@ -14,6 +15,7 @@ private:
 	bool status_table;
 	list<Dish> menu;
 	list<Order> list_order;
+	//static vector<Table> list_table;
 	int bill;
 public:
 	Table(int id, bool status_table = false, list<Dish> menu = {}) :
