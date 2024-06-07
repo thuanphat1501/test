@@ -138,11 +138,36 @@ int main()
                 }
             } while (m_option != 0);
         case 2:
-            //int targetID;
-            //cout << "Enter student ID to delete: ";
-            //cin >> targetID;
-            ////deleteStudent(studentDatabase, targetID);
-            //break;
+            cout << "Staff\n"
+                << "1. Get Table\n"
+                << "0. Exit\n"
+                << "Enter your choice: ";
+            int staffOption;
+            cin >> staffOption;
+            switch (staffOption)
+            {
+            case 1:
+                int numTable;
+                cout << "Choose Table: ";
+                cin >> numTable;
+                Table chosenTable = employee1.getTable(numTable);
+                if (chosenTable.getStatusTable())
+                {
+                    cout << "Table " << numTable << " is available." << endl;
+                }
+                else
+                {
+                    cout << "Table " << numTable << " is not available." << endl;
+                }
+                break;
+
+            case 0:
+                break;
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+                break;
+            }
+            break; // Thêm dòng này để thoát khỏi vòng lặp chính
         case 0:
             cout << "Exiting program." << endl;
             break;
