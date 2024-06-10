@@ -2,6 +2,8 @@
 #define EMPLOYER_H
 
 #include"table.hpp"
+#include"dish.hpp"
+#include"order.hpp"
 #include<vector>
 #include<string>
 #include<list>
@@ -24,7 +26,8 @@ public:
 
 	Table getTable(int id);
 	void displaySelectedTable(int num);
-
+	void updateTableList(list<Dish> menu, int number);
+	void order(Table& table, const list<Dish> menu);
 };
 
 #endif // !EMPLOYER_H

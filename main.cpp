@@ -154,15 +154,42 @@ int main()
                 int numTable;
                 cout << "Choose Table: ";
                 cin >> numTable;
+                employee1.updateTableList(Menu, numTable);
                 Table chosenTable = employee1.getTable(numTable);
-                if (chosenTable.getStatusTable())
-                {
-                    cout << "Table " << numTable << " is available." << endl;
+                if (chosenTable.getID() != -1) {
+                    if (chosenTable.getStatusTable()) {
+                        cout << "Table " << numTable << " is available." << endl;
+                    }
+                    else {
+                        cout << "Table " << numTable << " is not available." << endl;
+                    }
                 }
-                else
-                {
-                    cout << "Table " << numTable << " is not available." << endl;
+                else {
+                    cout << "Table " << numTable << " does not exist." << endl;
                 }
+                int table_option;
+                do
+                {
+                    cout << "1. Order.\n"
+                        << "2. Cancel Order.\n"
+                        << "3. Change Dish.\n"
+                        << "4. List of Order.\n"
+                        << "5. Payment.\n"
+                        << "0. Exit\n"
+                        << "Enter your choice: ";
+                    cin >> table_option;
+                    switch (table_option)
+                    {
+                    case 1:
+                        manager1.listDish();
+                        cout << "-------------------------------\n";
+                        cout << "Enter Dish ID:\n";
+                          
+                        break;
+                    default:
+                        break;
+                    }
+                } while (table_option != 0);
                 break;
             }
 

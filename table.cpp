@@ -35,9 +35,6 @@ void Table::deleteDish(Order order) {
     }
 }
 
-
-
-
 list<Order> Table::getListOrder()
 {
      return list_order;

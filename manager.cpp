@@ -1,9 +1,19 @@
 ﻿#include"manager.hpp"
 #include"table.hpp"
 #include"dish.hpp"
+#include"employer.hpp"
 #include<iostream>
 list<Dish> Menu;
-void Manager::setTable(int number) { number_table = number; };
+// Trong lớp Manager
+// Trong lớp Manager
+void Manager::setTable(int number)
+{
+    number_table = number;
+
+}
+
+
+
 // Hàm để thêm món ăn vào danh sách Menu
 void Manager::newDish()
 {
