@@ -17,6 +17,7 @@ public:
         id = ID;
         ID++;
     }
+    Dish() : id(-1), name(""), price(0) {}
 
     int getID() const;
     void setPrice(int newPrice);

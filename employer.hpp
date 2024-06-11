@@ -27,7 +27,7 @@ public:
 	Table getTable(int id);
 	void displaySelectedTable(int num);
 	void updateTableList(list<Dish> menu, int number);
-	void order(Table& table, const list<Dish> menu);
+	void order(Table& table, const list<Dish>& menu);
 };
 
 #endif // !EMPLOYER_H

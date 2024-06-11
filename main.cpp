@@ -183,7 +183,7 @@ int main()
                     case 1:
                         manager1.listDish();
                         cout << "-------------------------------\n";
-                        cout << "Enter Dish ID:\n";
+                        employee1.order();
                           
                         break;
                     default:

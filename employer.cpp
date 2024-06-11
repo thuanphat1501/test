@@ -50,7 +50,7 @@ void Employer::displaySelectedTable(int num)
     cout << "X: is not available\n";
     cout << "O: is available\n";
 }
-void Employer::order(Table& table, const list<Dish> menu) {
+void Employer::order(Table& table, const list<Dish>& menu) {
     cout << "Menu:" << endl;
     for (const auto& dish : menu) {
         cout << "ID: " << dish.getID() << " - " << dish.getName() << " ($" << dish.getPrice() << ")" << endl;
@@ -86,6 +86,8 @@ void Employer::order(Table& table, const list<Dish> menu) {
         cout << "Dish not found." << endl;
     }
 }
+
+
 
 
 // ...
