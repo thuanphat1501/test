@@ -10,7 +10,6 @@ void printMenu(const list<Dish>& menu);
 int main()
 {
 	list<Dish> Menu;
-    //Table orderTable(1,false,Menu);
 	int number_table = 0;
 	Manager manager1(Menu, number_table);
 	Employer employee1(Menu, number_table);
@@ -182,10 +181,9 @@ int main()
                     switch (table_option)
                     {
                     case 1:
-                        manager1.listDish();
-                        cout << "-------------------------------\n";
                         
-                          
+                        cout << "-------------------------------\n";
+                        chosenTable.orderDish();
                         break;
                     default:
                         break;

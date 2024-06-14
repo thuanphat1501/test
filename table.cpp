@@ -1,7 +1,7 @@
 ﻿#include "order.hpp"
 #include"table.hpp"
 #include <list>
-
+#include <iostream>
 using namespace std;
 
 int Table::getID() const
@@ -13,12 +13,53 @@ bool Table::getStatusTable()
 {
     return status_table;
 }
+ 
+void Table::orderDish() {
+    // Hiển thị danh sách món ăn
+    cout << "Danh sách món ăn:" << endl;
+    for (const auto& dish : menu) {
+        cout << "ID: " << dish.getID() << ", Tên: " << dish.getName() << ", Giá: " << dish.getPrice() << endl;
+    }
 
-void Table::orderDish(Order order)
-{
-    // Thêm order vào danh sách order
-    list_order.push_back(order);
+    // Nhập ID của món ăn
+    int dishId;
+    cout << "Nhập ID của món ăn: ";
+    cin >> dishId;
+
+    // Kiểm tra xem món ăn đã tồn tại trong danh sách menu hay không
+    bool found = false;
+    Dish selectedDish; // Declare a Dish object to store the selected dish
+    for (const auto& dish : menu) {
+        if (dish.getID() == dishId) {
+            found = true;
+            selectedDish = dish; // Store the selected dish
+            break;
+        }
+    }
+
+    if (found) {
+        // Nhập số lượng món ăn
+        int quantity;
+        cout << "Nhập số lượng: ";
+        cin >> quantity;
+
+        // Tạo đối tượng Order và thêm vào danh sách đặt hàng
+        Order order(selectedDish, quantity);
+        list_order.push_back(order);
+
+        // Cập nhật tổng tiền
+        bill += order.getDish().getPrice() * quantity;
+
+        // In ra thông tin món ăn đã đặt
+        cout << "Đã đặt: " << selectedDish.getName() << " x " << quantity << " - Tổng tiền: " << order.getDish().getPrice() * quantity << endl;
+    }
+    else {
+        cout << "Món ăn không tồn tại trong menu." << endl;
+    }
 }
+
+
+
 
 void Table::deleteDish(Order order) {
     // Tìm kiếm món ăn trong danh sách đặt hàng
@@ -55,4 +96,3 @@ void Table::makePayment()
     // Xóa danh sách đặt hàng
     list_order.clear();
 }
-

@@ -23,11 +23,11 @@ public:
 	int getID() const;
 
 	bool getStatusTable();
-	void orderDish(Order order);
+	void orderDish();
 	void deleteDish(Order order);
 	list<Order> getListOrder();
 	void makePayment();
-
+	
 
 };
 
