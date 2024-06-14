@@ -4,8 +4,7 @@
 #include"employer.hpp"
 #include<iostream>
 list<Dish> Menu;
-// Trong lớp Manager
-// Trong lớp Manager
+
 void Manager::setTable(int number)
 {
     number_table = number;

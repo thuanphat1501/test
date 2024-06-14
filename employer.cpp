@@ -5,7 +5,7 @@
 #include <vector>
 #include <string>
 #include<iostream>
-// Trong lớp Employer
+
 void Employer::updateTableList(list<Dish> menu, int number)
 {
     list_table.clear(); // Xóa danh sách bàn hiện tại
@@ -26,9 +26,7 @@ Table Employer::getTable(int id)
             return table;
         }
     }
-    cout << "Table not found\n"; // In ra thông báo khi không tìm thấy bàn
-    // Hoặc bạn có thể ném một ngoại lệ để xử lý tùy ý
-    // throw std::runtime_error("Bàn không tồn tại!");
+    cout << "Table not found\n"; 
 }
 
 
@@ -50,7 +48,7 @@ void Employer::displaySelectedTable(int num)
     cout << "X: is not available\n";
     cout << "O: is available\n";
 }
-void Employer::order(Table& table, const list<Dish>& menu) {
+void Employer::order(list<Dish> menu) {
     cout << "Menu:" << endl;
     for (const auto& dish : menu) {
         cout << "ID: " << dish.getID() << " - " << dish.getName() << " ($" << dish.getPrice() << ")" << endl;
@@ -60,7 +58,7 @@ void Employer::order(Table& table, const list<Dish>& menu) {
     cout << "Enter the dish ID: ";
     cin >> dishID;
 
-    // Find the dish in the menu
+    // Tìm món ăn trong danh sách
     Dish orderedDish;
     for (const auto& dish : menu) {
         if (dish.getID() == dishID) {
@@ -69,25 +67,26 @@ void Employer::order(Table& table, const list<Dish>& menu) {
         }
     }
 
-    if (orderedDish.getID() != -1) {
+    if (orderedDish.getID() != 0) {
         int quantity;
         cout << "Enter the quantity: ";
         cin >> quantity;
 
-        // Create an order
+        // Tạo đơn hàng
         Order newOrder(orderedDish, quantity);
 
-        // Add the order to the table's list
-        table.orderDish(newOrder);
+        // Thêm đơn hàng vào danh sách của bàn
+        // (Bạn cần thay đổi phần này để thực hiện thêm đơn hàng vào bàn cụ thể)
+        // table.orderDish(newOrder);
 
-        cout << "Order placed successfully!" << endl;
+        // Hiển thị chi tiết đơn hàng
+        cout << "Ordered: " << orderedDish.getName() << " x" << quantity << endl;
+        cout << "Total cost: $" << orderedDish.getPrice() * quantity << endl;
     }
     else {
         cout << "Dish not found." << endl;
     }
 }
-
-
 
 
 // ...

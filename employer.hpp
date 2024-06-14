@@ -14,8 +14,9 @@ class Employer
 {
 private:
 	vector<Table> list_table;
+	list<Dish> menu;
 public:
-	Employer(list<Dish> menu, int number_table, string password = "EMPLOYER")
+	Employer(list<Dish>& menu, int number_table, string password = "EMPLOYER")
 	{
 		for (int i = 1; i <= number_table; ++i)
 		{
@@ -27,7 +28,7 @@ public:
 	Table getTable(int id);
 	void displaySelectedTable(int num);
 	void updateTableList(list<Dish> menu, int number);
-	void order(Table& table, const list<Dish>& menu);
+	void order(list<Dish> menu);
 };
 
 #endif // !EMPLOYER_H
